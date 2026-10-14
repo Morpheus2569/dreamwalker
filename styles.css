@@ -149,3 +149,13 @@ footer .brand { font-size: 1.1rem; }
   .hero { padding: 60px 0 50px; }
   .btn.ghost { margin-left: 0; margin-top: 10px; }
 }
+
+/* Story */
+.story { display: grid; grid-template-columns: 280px 1fr; gap: 36px; align-items: start; max-width: 920px; margin: 0 auto; }
+.story-photo { width: 100%; border-radius: var(--radius); border: 1px solid var(--line); display: block; }
+.story-text p { color: var(--muted); margin-bottom: 16px; }
+.story-text strong { color: var(--text); }
+@media (max-width: 700px) {
+  .story { grid-template-columns: 1fr; }
+  .story-photo { max-width: 280px; margin: 0 auto; }
+}
