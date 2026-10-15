@@ -4,39 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Morpheus the Dreamwalker — Walk Your Goals Into Reality</title>
-  <meta name="description" content="The DreamWalker brand hub: accountability coaching, digital products, and a story of reinvention.">
+  <meta name="description" content="Online accountability coaching with Morpheus Milbourne. Practical goals, honest check-ins, and support for your next step.">
+  <meta name="theme-color" content="#F7F3EB">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="wrap">
-    <nav>
+    <nav aria-label="Main navigation">
       <a class="brand" href="index.html">Dream<span>Walker</span></a>
       <div class="nav-links">
         <a href="coaching.html">Coaching</a>
-        <a href="#ventures">Ventures</a>
+        <a href="#ventures">Projects</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
 
+    <main id="main">
     <header class="hero">
       <span class="eyebrow">Morpheus the Dreamwalker</span>
       <h1>Walk your goals<br>into <em>reality.</em></h1>
-      <p class="lead">Accountability coaching, digital products, and a real story of reinvention — built by someone walking the path himself.</p>
+      <p class="lead">Online accountability coaching for working adults balancing real responsibilities. Together, we build a practical plan, check in honestly, and keep making room for what matters to you.</p>
       <div class="cta-row">
-        <a class="btn" href="coaching.html">Explore Coaching</a>
+        <a class="btn" href="coaching.html">Find Your Next Step</a>
         <a class="btn ghost" href="#about">My Story</a>
       </div>
+      <p class="hero-note">Clear goals. Compassionate support. Shared accountability.</p>
+
+      <figure class="journey-scene" data-motion="still" aria-label="An illustrated path through hills toward morning light">
+        <svg class="journey-art" viewBox="0 0 720 280" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="journey-sky" x2="0" y2="1"><stop stop-color="#E6ECE4"/><stop offset="1" stop-color="#F7F3EB"/></linearGradient>
+            <radialGradient id="journey-light"><stop stop-color="#DCC58E" stop-opacity=".55"/><stop offset="1" stop-color="#DCC58E" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="720" height="280" fill="url(#journey-sky)"/>
+          <circle class="journey-glow" cx="490" cy="95" r="95" fill="url(#journey-light)"/>
+          <circle class="journey-sun" cx="490" cy="95" r="28" fill="#B69049" opacity=".65"/>
+          <path d="M0 172 Q100 105 220 163 T460 147 T720 151 V280 H0Z" fill="#C7D5C7"/>
+          <path d="M0 218 Q145 135 310 203 T590 177 T720 204 V280 H0Z" fill="#91AA97"/>
+          <path d="M0 259 Q120 215 244 238 T485 219 T720 245 V280 H0Z" fill="#2F6558"/>
+          <path class="journey-trail" d="M260 280 C330 246 450 258 427 222 S384 197 447 175 Q488 160 489 143" fill="none" stroke="#F7F3EB" stroke-width="9" stroke-linecap="round"/>
+          <path class="journey-progress" d="M260 280 C330 246 450 258 427 222 S384 197 447 175 Q488 160 489 143" fill="none" stroke="#B69049" stroke-width="2" stroke-linecap="round" pathLength="100"/>
+          <g fill="#223B35" transform="translate(360 228)"><circle cy="-22" r="5"/><path d="M-4-15 Q0-18 5-14 L8 0 3 1 1-8-1 0-7 13-11 11-5-2Z"/><path d="M3 0 10 11 7 14-2 3Z"/><path d="M-3-12-10-4-13-6-6-16Z"/><path d="M4-13 13-7 12-4 3-8Z"/></g>
+        </svg>
+        <figcaption class="journey-caption"><span>Strength to begin. Space to grow.</span><button type="button" class="motion-toggle" hidden aria-label="Pause landscape animation">Pause motion</button></figcaption>
+      </figure>
     </header>
 
     <section id="ventures">
-      <h2>The Ventures</h2>
-      <p class="sub">Three lanes, one mission: help people build disciplined, intentional lives — starting with my own.</p>
+      <h2>Coaching &amp; Other Projects</h2>
+      <p class="sub">Start with coaching. Explore the other projects taking shape alongside it.</p>
       <div class="cards">
         <div class="card">
-          <span class="tag">Flagship — Now Enrolling</span>
+          <span class="tag">One-on-one support</span>
           <h3>Accountability Coaching</h3>
           <p>One-on-one coaching for busy working adults who want consistency in their career, education, habits, and personal goals. Real structure, honest check-ins, follow-through.</p>
           <a class="more" href="coaching.html">Learn more →</a>
@@ -45,13 +69,13 @@
           <span class="tag soon">Coming Soon</span>
           <h3>Evergreen Printables</h3>
           <p>Planners, trackers, and stationery designed for people building better routines — the same tools I use with my coaching clients.</p>
-          <a class="more" href="#contact">Get notified →</a>
+          <a class="more" href="#contact">Ask about this project →</a>
         </div>
         <div class="card">
           <span class="tag soon">Coming Soon</span>
           <h3>Grace of Sanctuary</h3>
           <p>Property management built on stewardship and care — housing done right, for tenants and owners alike.</p>
-          <a class="more" href="#contact">Get notified →</a>
+          <a class="more" href="#contact">Ask about this project →</a>
         </div>
       </div>
     </section>
@@ -61,8 +85,8 @@
       <p class="sub">The short version.</p>
       <div class="about">
         <div>
-          <p>I'm <strong>Morpheus</strong> — a paramedic with <strong>15+ years</strong> in emergency and transition-of-care work, now earning my psychology degree at Germanna Community College and training as a professional accountability coach.</p>
-          <p>I've worked night shifts, raised a family, cared for loved ones, and rebuilt my life more than once. I know what it's like to <strong>want more and struggle to stay consistent</strong> — and I know the systems that actually fix it.</p>
+          <p>I'm <strong>Morpheus</strong> — a paramedic with <strong>15+ years</strong> in emergency and transition-of-care work, now earning my psychology degree at Germanna Community College and building my accountability coaching practice.</p>
+          <p>I've worked night shifts, raised a family, cared for loved ones, and rebuilt my life more than once. I know what it's like to <strong>want more and struggle to stay consistent</strong> — and why a realistic plan and honest support matter.</p>
           <p>DreamWalker is my personal brand and my promise: <strong>no hype, no shortcuts — just disciplined steps, walked daily, toward the life you're meant for.</strong></p>
         </div>
       </div>
@@ -76,15 +100,18 @@
 
     <section id="contact" style="text-align:center;">
       <h2>Start Walking</h2>
-      <p class="sub">Coaching spots are limited while I build my founding client roster. Reach out and let's talk about where you're headed.</p>
-      <a class="btn" href="mailto:morpheus25@live.com?subject=Initial%20Truth%20Session%20—%20DreamWalker">Book Your Initial Truth Session</a>
+      <p class="sub">Start with a free 30-minute conversation about your goals and the support you’re looking for. Email me to arrange a time.</p>
+      <a class="btn" href="mailto:morpheus25@live.com?subject=Initial%20Truth%20Session%20—%20DreamWalker">Book My Free Truth Session</a>
     </section>
 
+    </main>
     <footer>
       <div class="brand">Dream<span>Walker</span></div>
       <p>© 2026 Morpheus · Culpeper, Virginia<br>
       <a href="mailto:morpheus25@live.com">morpheus25@live.com</a></p>
     </footer>
   </div>
+  <script src="media.js" defer></script>
+  <script src="site.js" defer></script>
 </body>
 </html>
