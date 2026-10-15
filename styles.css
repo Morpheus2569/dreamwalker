@@ -205,3 +205,13 @@ footer .brand { font-size: 1.1rem; }
 #quiz-plan .row input { width: 100%; background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; color: var(--text); font-family: "Inter", sans-serif; font-size: 1rem; padding: 14px 16px; }
 #quiz-plan .row input:focus { outline: none; border-color: var(--gold); }
 @media (max-width: 600px) { #quiz-plan .row { grid-template-columns: 1fr; } }
+
+/* Value ladder additions */
+.offer-tag { color: var(--muted); font-size: 0.95rem; margin: 0 0 16px; }
+#why-ninety { max-width: 720px; margin: 0 auto; text-align: center; }
+#why-ninety p { color: var(--muted); margin-bottom: 16px; }
+.rhythm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
+.rhythm-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+.rhythm-card h3 { font-family: "Playfair Display", Georgia, serif; color: var(--gold); margin: 0 0 12px; font-size: 1.25rem; }
+.rhythm-card p { color: var(--muted); margin: 0; font-size: 0.98rem; }
+@media (max-width: 860px) { .rhythm-grid { grid-template-columns: 1fr; } }
