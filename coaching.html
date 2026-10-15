@@ -16,6 +16,7 @@
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="#first-move">First Move</a>
+        <a href="#paths">Paths</a>
         <a href="#how">How It Works</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
@@ -65,28 +66,201 @@
 
 
 
-    <section>
-      <h2>Who This Is For</h2>
-      <p class="sub">You don't need more information. You need someone in your corner making sure you act on what you already know.</p>
+    <section id="paths">
+      <h2>Choose where you want to move forward</h2>
+      <p class="sub">You don&rsquo;t need the whole plan figured out. Start with what matters to you today, and we&rsquo;ll help you identify your next move.</p>
       <div class="cards">
         <div class="card">
-          <h3>Career</h3>
-          <p>Certifications you're "going to start," applications you keep postponing, the promotion you want but haven't chased. We turn intentions into deadlines.</p>
+          <h3>Navigating Divorce</h3>
+          <p class="tagline">Build a steadier routine and take your next step.</p>
+          <p>When life is changing, everyday decisions can feel harder. Get support organizing priorities, following through on practical goals, and building the next chapter of your life.</p>
+          <p class="boundary">Accountability coaching &mdash; not legal advice or therapy.</p>
+          <button class="btn ghost path-btn" data-path="divorce" type="button">Find my next step</button>
         </div>
         <div class="card">
-          <h3>Education</h3>
-          <p>Working adults going back to school — juggling shifts, classes, and life. Stay on top of coursework without burning out.</p>
+          <h3>Rebuilding in Recovery</h3>
+          <p class="tagline">Put your recovery goals into everyday practice.</p>
+          <p>Build routines, follow through on commitments, and create space for honest check-ins &mdash; alongside your existing recovery care and support network.</p>
+          <p class="boundary">Coaching that supports your recovery &mdash; not treatment.</p>
+          <button class="btn ghost path-btn" data-path="recovery" type="button">Choose my starting action</button>
         </div>
         <div class="card">
-          <h3>Habits</h3>
-          <p>Fitness, sleep, routines, the fundamentals. Small daily wins, tracked honestly, compounded over months.</p>
-        </div>
-        <div class="card">
-          <h3>Personal Goals</h3>
-          <p>The business idea, the book, the life change you've been circling for years. We break it down and walk it out — together.</p>
+          <h3>General Accountability</h3>
+          <p class="tagline">Turn something you want to do into something you&rsquo;re doing.</p>
+          <p>Move forward on a project, build a habit, or finish something you keep putting off &mdash; career, school, health, or personal goals &mdash; with clear commitments and consistent follow-through.</p>
+          <p class="boundary">Forward-looking coaching for the goals you choose.</p>
+          <button class="btn ghost path-btn" data-path="general" type="button">Make my first move</button>
         </div>
       </div>
+      <p class="sub" style="margin-top:26px">More than one path fits? Choose the one you want support with first.</p>
+
+      <div id="path-quiz" class="quiz" hidden>
+        <h3 id="pq-title" style="text-align:center;margin-bottom:20px"></h3>
+        <div id="pq-questions"></div>
+        <div class="q">
+          <label for="pq-deadline">By when will you do it?</label>
+          <input type="date" id="pq-deadline">
+        </div>
+        <p class="fine" id="pq-crisis" hidden>If you&rsquo;re ever in crisis, call or text <a href="tel:988"><strong>988</strong></a> &mdash; free, confidential support 24/7.</p>
+        <div style="text-align:center"><button class="btn" id="pq-show" type="button">See my first move</button></div>
+        <div id="pq-plan" hidden>
+          <p class="plan-line">My first move is <strong id="pq-action"></strong>, by <strong id="pq-by"></strong>.</p>
+          <p class="fine">Want it in your inbox? Drop your email and I&rsquo;ll send your plan &mdash; plus one check-in nudge next week.</p>
+          <div class="row">
+            <input type="text" id="pq-name" placeholder="Your name" autocomplete="name">
+            <input type="email" id="pq-email" placeholder="Email address" autocomplete="email">
+          </div>
+          <div style="text-align:center"><button class="btn ghost" id="pq-send" type="button">Send me my plan</button></div>
+        </div>
+        <p class="form-msg" id="pq-msg" role="status"></p>
+      </div>
+
+      <h2 style="margin-top:70px">Different starting points. One shared method.</h2>
+      <p class="sub">Choose a meaningful goal, take action, and review what happens &mdash; on every path.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Choose a focus</h3>
+          <p>Name something that matters to you &mdash; the goal, change, or finish line you&rsquo;re ready to move toward.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Make a commitment</h3>
+          <p>Pick a manageable action and make it concrete: what you&rsquo;ll do, when, and where &mdash; plus a realistic deadline.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Check in honestly</h3>
+          <p>Every truth session opens with a brief grounding check-in &mdash; feet on the floor, one breath, a moment to align with what matters &mdash; then we look at what happened, including what got in the way.</p>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <h3>Adjust and keep moving</h3>
+          <p>Use what you learn to choose your next action. Missed weeks are information, not failure.</p>
+        </div>
+      </div>
+      <p class="sub" style="margin-top:30px">Expect encouragement, direct questions, and a shared commitment to following through. When something gets in the way, we work through it together.</p>
     </section>
+
+    <script>
+    (function() {
+      var PATHS = {
+        divorce: {
+          title: "Navigating Divorce \u2014 your first move",
+          crisis: false,
+          questions: [
+            "What part of daily life would you most like to make steadier?",
+            "What\u2019s making that difficult right now?",
+            "What is one step within your control that you could take this week?"
+          ]
+        },
+        recovery: {
+          title: "Rebuilding in Recovery \u2014 your first move",
+          crisis: true,
+          questions: [
+            "What everyday goal would you like accountability around?",
+            "What tends to get in the way of following through?",
+            "What small action would support the recovery commitments you already have?"
+          ]
+        },
+        general: {
+          title: "General Accountability \u2014 your first move",
+          crisis: false,
+          questions: [
+            "What do you want to build, change, or finish?",
+            "Where does your progress usually stall?",
+            "What could you realistically complete this week?"
+          ]
+        }
+      };
+      var activePath = null, answers = [];
+      var panel = document.getElementById('path-quiz');
+      var qWrap = document.getElementById('pq-questions');
+      var msg = document.getElementById('pq-msg');
+
+      document.querySelectorAll('.path-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          activePath = btn.getAttribute('data-path');
+          var cfg = PATHS[activePath];
+          document.getElementById('pq-title').textContent = cfg.title;
+          document.getElementById('pq-crisis').hidden = !cfg.crisis;
+          qWrap.innerHTML = '';
+          cfg.questions.forEach(function(q, i) {
+            var div = document.createElement('div');
+            div.className = 'q';
+            var label = document.createElement('label');
+            label.innerHTML = '<span class="qnum">' + (i + 1) + '</span> ' + q;
+            var ta = document.createElement('textarea');
+            ta.rows = 2;
+            ta.id = 'pq-q' + i;
+            div.appendChild(label);
+            div.appendChild(ta);
+            qWrap.appendChild(div);
+          });
+          document.getElementById('pq-plan').hidden = true;
+          document.getElementById('pq-deadline').value = '';
+          msg.textContent = ''; msg.className = 'form-msg';
+          panel.hidden = false;
+          panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      document.getElementById('pq-show').addEventListener('click', function() {
+        answers = [0, 1, 2].map(function(i) {
+          return document.getElementById('pq-q' + i).value.trim();
+        });
+        var dl = document.getElementById('pq-deadline').value;
+        if (!answers[2] || !dl) {
+          msg.textContent = 'Answer the third question and pick a deadline to see your first move.';
+          msg.className = 'form-msg err';
+          return;
+        }
+        var dstr = new Date(dl + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+        document.getElementById('pq-action').textContent = answers[2];
+        document.getElementById('pq-by').textContent = dstr;
+        document.getElementById('pq-plan').hidden = false;
+        msg.textContent = ''; msg.className = 'form-msg';
+        document.getElementById('pq-plan').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+
+      document.getElementById('pq-send').addEventListener('click', async function() {
+        var name = document.getElementById('pq-name').value.trim();
+        var email = document.getElementById('pq-email').value.trim();
+        var btn = document.getElementById('pq-send');
+        if (!name || !/[^@\s]+@[^@\s]+\.[^@\s]+/.test(email)) {
+          msg.textContent = 'Add your name and a valid email so I know where to send it.';
+          msg.className = 'form-msg err';
+          return;
+        }
+        btn.disabled = true; btn.textContent = 'Sending\u2026';
+        try {
+          var payload = {
+            name: name, email: email,
+            _subject: 'New Path Quiz \u2014 DreamWalker',
+            _template: 'table',
+            _honey: '',
+            'Path': activePath,
+            'Q1': answers[0], 'Q2': answers[1], 'Q3': answers[2],
+            'Deadline': document.getElementById('pq-deadline').value,
+            'First move': answers[2]
+          };
+          var res = await fetch('https://formsubmit.co/ajax/morpheus25@live.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (!res.ok) throw new Error('send failed');
+          msg.textContent = 'Sent. Watch your inbox \u2014 your plan is on its way, with a check-in nudge next week.';
+          msg.className = 'form-msg ok';
+          btn.textContent = 'Sent \u2713';
+        } catch (err) {
+          msg.textContent = 'Something went wrong. Email me directly at morpheus25@live.com and I\u2019ll get you sorted.';
+          msg.className = 'form-msg err';
+          btn.disabled = false; btn.textContent = 'Send me my plan';
+        }
+      });
+    })();
+    </script>
 
     <section id="how">
       <h2>How It Works</h2>
@@ -193,6 +367,18 @@
           <p>Not yet — I begin intensive ICF-aligned coach training through Tandem Coaching Academy this November, so my education will run alongside our work together. If it shifts my schedule any given week, you’ll always get advance notice — and you’ll know your coach is actively sharpening his craft while walking with you. Founding clients lock in founding rates now.</p>
         </details>
         <details>
+          <details>
+            <summary>Can coaching help with legal decisions during divorce?</summary>
+            <p>No &mdash; coaching focuses on your personal goals, routines, and follow-through: the decisions within your control. Legal questions belong with a qualified legal professional, and I can help you get organized for those conversations.</p>
+          </details>
+          <details>
+            <summary>How does coaching fit with my recovery support?</summary>
+            <p>As a complement, never a replacement. We work on the practical commitments you choose &mdash; routines, follow-through, planning for obstacles &mdash; alongside your existing care and support network. Coaching is not addiction treatment. If you&rsquo;re ever in crisis, call or text <a href="tel:988"><strong>988</strong></a>.</p>
+          </details>
+          <details>
+            <summary>What happens if I don&rsquo;t complete my action?</summary>
+            <p>We review what happened, address the obstacle without judgment, and agree on a realistic next commitment. Missed weeks are information, not failure &mdash; that&rsquo;s literally what the check-in is for.</p>
+          </details>
           <summary>How do sessions happen?</summary>
           <p>By phone or video call — whatever fits your schedule, including evenings. Direct messaging between sessions keeps you on track day to day.</p>
         </details>

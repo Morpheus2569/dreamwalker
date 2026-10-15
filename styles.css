@@ -183,3 +183,18 @@ footer .brand { font-size: 1.1rem; }
   .quiz { padding: 28px 20px; }
   .quiz .gate .row { grid-template-columns: 1fr; }
 }
+
+/* Choose Your Path */
+.card .tagline { font-family: "Playfair Display", Georgia, serif; font-size: 1.05rem; color: var(--gold-soft); margin-bottom: 10px; }
+.card .boundary { font-size: 0.82rem; color: var(--muted); font-style: italic; margin: 14px 0 18px; }
+.card .path-btn { margin: 0; }
+#path-quiz { margin-top: 40px; }
+#path-quiz[hidden] { display: none; }
+#pq-questions .q { margin-bottom: 20px; }
+#pq-deadline { max-width: 260px; }
+.plan-line { text-align: center; font-size: 1.2rem; font-family: "Playfair Display", Georgia, serif; margin: 22px 0 8px; }
+#pq-plan .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+#pq-plan .row input { width: 100%; background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; color: var(--text); font-family: "Inter", sans-serif; font-size: 1rem; padding: 14px 16px; }
+#pq-plan .row input:focus { outline: none; border-color: var(--gold); }
+#pq-crisis { text-align: center; margin: 6px 0 16px; }
+@media (max-width: 600px) { #pq-plan .row { grid-template-columns: 1fr; } }
