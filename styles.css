@@ -198,3 +198,10 @@ footer .brand { font-size: 1.1rem; }
 #pq-plan .row input:focus { outline: none; border-color: var(--gold); }
 #pq-crisis { text-align: center; margin: 6px 0 16px; }
 @media (max-width: 600px) { #pq-plan .row { grid-template-columns: 1fr; } }
+
+/* First-move quiz plan + optional email */
+#quiz-plan[hidden] { display: none; }
+#quiz-plan .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+#quiz-plan .row input { width: 100%; background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; color: var(--text); font-family: "Inter", sans-serif; font-size: 1rem; padding: 14px 16px; }
+#quiz-plan .row input:focus { outline: none; border-color: var(--gold); }
+@media (max-width: 600px) { #quiz-plan .row { grid-template-columns: 1fr; } }

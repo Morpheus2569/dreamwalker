@@ -34,31 +34,37 @@
 
     <section id="first-move">
       <h2>Make Your First Move</h2>
-      <p class="sub">Three honest questions. Answer them, and I'll personally send you a first step toward your goal — tailored to what you wrote, not a template.</p>
+      <p class="sub">Four quick questions. See your first move instantly — and if you want my personal take, I’ll send it to your inbox.</p>
       <form id="quiz-form" class="quiz" novalidate>
         <div class="q">
           <label for="q1"><span class="qnum">1</span> What do you want to build?</label>
-          <textarea id="q1" name="What do you want to build?" rows="3" placeholder="The goal, the change, the life you're working toward&hellip;" required></textarea>
+          <textarea id="q1" rows="2" placeholder="The goal, the change, the life you're working toward&hellip;"></textarea>
         </div>
         <div class="q">
           <label for="q2"><span class="qnum">2</span> Where are you now?</label>
-          <textarea id="q2" name="Where are you now?" rows="3" placeholder="Be honest &mdash; no judgment here." required></textarea>
+          <textarea id="q2" rows="2" placeholder="Be honest &mdash; no judgment here."></textarea>
         </div>
         <div class="q">
           <label for="q3"><span class="qnum">3</span> What&rsquo;s standing in the way?</label>
-          <textarea id="q3" name="What's standing in the way?" rows="3" placeholder="The obstacle, the pattern, the thing that keeps winning." required></textarea>
+          <textarea id="q3" rows="2" placeholder="The obstacle, the pattern, the thing that keeps winning."></textarea>
         </div>
-        <div class="gate">
-          <h3>Where should I send your first-move plan?</h3>
+        <div class="q">
+          <label for="q4"><span class="qnum">4</span> What&rsquo;s one small step you could take this week?</label>
+          <textarea id="q4" rows="2" placeholder="Something concrete &mdash; what, when, where."></textarea>
+        </div>
+        <div class="q">
+          <label for="q-deadline">By when will you do it?</label>
+          <input type="date" id="q-deadline" style="max-width:260px">
+        </div>
+        <div style="text-align:center"><button class="btn" id="quiz-show" type="button">See my first move</button></div>
+        <div id="quiz-plan" hidden>
+          <p class="plan-line">My first move is <strong id="quiz-action"></strong>, by <strong id="quiz-by"></strong>.</p>
+          <p class="fine">Want my personal take? Drop your email and I&rsquo;ll send you a tailored first step &mdash; based on what you wrote, not a template &mdash; within a day or two.</p>
           <div class="row">
-            <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
-            <input type="email" name="email" placeholder="Email address" autocomplete="email" required>
+            <input type="text" id="quiz-name" placeholder="Your name" autocomplete="name">
+            <input type="email" id="quiz-email" placeholder="Email address" autocomplete="email">
           </div>
-          <input type="hidden" name="_subject" value="New First-Move Quiz &mdash; DreamWalker">
-          <input type="hidden" name="_template" value="table">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <button class="btn" type="submit">Send My First-Move Plan</button>
-          <p class="fine">Your answers go straight to Morpheus. No spam, no list-selling &mdash; just a personal reply within a day or two.</p>
+          <div style="text-align:center"><button class="btn ghost" id="quiz-send" type="button">Send me my plan</button></div>
         </div>
         <p class="form-msg" id="quiz-msg" role="status"></p>
       </form>
@@ -398,42 +404,66 @@
     </footer>
   </div>
     <script>
-    document.getElementById('quiz-form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      var form = e.target;
+    (function() {
       var msg = document.getElementById('quiz-msg');
-      var btn = form.querySelector('button[type="submit"]');
-      if (form._honey.value) return;
-      var valid = true;
-      form.querySelectorAll('[required]').forEach(function(el) {
-        if (!el.value.trim()) { valid = false; el.style.borderColor = '#e57373'; }
-        else { el.style.borderColor = ''; }
-      });
-      if (!valid) {
-        msg.textContent = 'Please answer all three questions and add your name and email.';
-        msg.className = 'form-msg err';
-        return;
-      }
-      btn.disabled = true;
-      btn.textContent = 'Sending\u2026';
-      try {
-        var res = await fetch('https://formsubmit.co/ajax/morpheus25@live.com', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      var plan = document.getElementById('quiz-plan');
+      var answers = [];
+
+      document.getElementById('quiz-show').addEventListener('click', function() {
+        answers = [1, 2, 3, 4].map(function(i) {
+          return document.getElementById('q' + i).value.trim();
         });
-        if (!res.ok) throw new Error('send failed');
-        form.reset();
-        msg.textContent = 'Your answers are on their way. Watch your inbox \u2014 your personal first-move plan is coming within a day or two.';
-        msg.className = 'form-msg ok';
-        btn.textContent = 'Sent \u2713';
-      } catch (err) {
-        msg.textContent = 'Something went wrong sending that. Please try again \u2014 or email me directly at morpheus25@live.com.';
-        msg.className = 'form-msg err';
-        btn.disabled = false;
-        btn.textContent = 'Send My First-Move Plan';
-      }
-    });
+        var dl = document.getElementById('q-deadline').value;
+        if (!answers[3] || !dl) {
+          msg.textContent = 'Name one small step and pick a deadline to see your first move.';
+          msg.className = 'form-msg err';
+          return;
+        }
+        var dstr = new Date(dl + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+        document.getElementById('quiz-action').textContent = answers[3];
+        document.getElementById('quiz-by').textContent = dstr;
+        plan.hidden = false;
+        msg.textContent = ''; msg.className = 'form-msg';
+        plan.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+
+      document.getElementById('quiz-send').addEventListener('click', async function() {
+        var name = document.getElementById('quiz-name').value.trim();
+        var email = document.getElementById('quiz-email').value.trim();
+        var btn = document.getElementById('quiz-send');
+        if (!name || !/[^@\s]+@[^@\s]+\.[^@\s]+/.test(email)) {
+          msg.textContent = 'Add your name and a valid email so I know where to send it.';
+          msg.className = 'form-msg err';
+          return;
+        }
+        btn.disabled = true; btn.textContent = 'Sending\u2026';
+        try {
+          var payload = {
+            name: name, email: email,
+            _subject: 'New First-Move Quiz \u2014 DreamWalker',
+            _template: 'table', _honey: '',
+            'Q1 - What do you want to build?': answers[0],
+            'Q2 - Where are you now?': answers[1],
+            'Q3 - Standing in the way': answers[2],
+            'Q4 - First step': answers[3],
+            'Deadline': document.getElementById('q-deadline').value
+          };
+          var res = await fetch('https://formsubmit.co/ajax/morpheus25@live.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (!res.ok) throw new Error('send failed');
+          msg.textContent = 'Sent. Watch your inbox \u2014 your personal first-move plan is coming within a day or two.';
+          msg.className = 'form-msg ok';
+          btn.textContent = 'Sent \u2713';
+        } catch (err) {
+          msg.textContent = 'Something went wrong. Email me directly at morpheus25@live.com and I\u2019ll get you sorted.';
+          msg.className = 'form-msg err';
+          btn.disabled = false; btn.textContent = 'Send me my plan';
+        }
+      });
+    })();
     </script>
 </body>
 </html>
