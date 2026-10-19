@@ -105,7 +105,7 @@
     const context = ['My goal', 'Where I am now', 'What gets in the way'].map((label, i) => {
       return answers[i] ? `${label}: ${answers[i]}` : '';
     }).filter(Boolean).join('\n');
-    share.href = `mailto:morpheus25@live.com?subject=${encodeURIComponent('My DreamWalker first move')}&body=${encodeURIComponent(`Hi Morpheus,\n\nI would like to talk about accountability coaching.\n\n${planText}\n\n${context}\n\nMy preferred times for a call are: `)}`;
+    share.href = `mailto:morpheus@dreamwalkercoaching.com?subject=${encodeURIComponent('My DreamWalker first move')}&body=${encodeURIComponent(`Hi Morpheus,\n\nI would like to talk about accountability coaching.\n\n${planText}\n\n${context}\n\nMy preferred times for a call are: `)}`;
     plan.hidden = false;
     if (followup) followup.hidden = false;
     message.textContent = 'Your plan is ready. Nothing has been sent — share it below if you want my personal take.';
@@ -149,7 +149,7 @@
           'Q4 - First step': answers[3],
           'Deadline': deadline.value
         };
-        const res = await fetch('https://formsubmit.co/ajax/morpheus25@live.com', {
+        const res = await fetch('https://formsubmit.co/ajax/morpheus@dreamwalkercoaching.com', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(payload)
