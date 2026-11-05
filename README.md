@@ -75,3 +75,7 @@ Confirm the spoken words and captions before making the section visible.
 Motion and optional-video behavior passed DOM interaction checks, including
 pause/play, reduced-motion handling, configuration gating, and error fallback.
 Real-browser visual and actual media playback checks remain pending.
+
+## Form delivery note (Nov 5, 2026)
+
+The First-Move Quiz sends submissions via FormSubmit to morpheus2569@gmail.com, the inbox monitored daily. (Previously routed to the Workspace business address, whose FormSubmit activation was never completed.)
